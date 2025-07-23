@@ -1,0 +1,12 @@
+<svg width="300" height="50" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 36px;
+      font-weight: bold;
+    }
+  </style>
+  <text x="5" y="40" class="text">
+    <tspan fill="#2B2B2B">C</tspan><tspan fill="#F9FBFB" stroke="#2B2B2B" stroke-width="0.5">h</tspan><tspan fill="#0E67AB">a</tspan><tspan fill="#D3202A">o</tspan><tspan fill="#00733E">s</tspan><tspan fill="#2B2B2B">M</tspan><tspan fill="#F9FBFB" stroke="#2B2B2B" stroke-width="0.5">a</tspan><tspan fill="#0E67AB">g</tspan><tspan fill="#D3202A">i</tspan><tspan fill="#00733E">c</tspan>
+  </text>
+</svg>

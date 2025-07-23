@@ -1,0 +1,40 @@
+<div class="min-h-screen flex flex-col">
+  <header class="w-full p-4 flex justify-center">
+    <img src="<%= asset_path 'logo_improved.svg' %>" alt="ChaosMagic Logo" class="h-12">
+  </header>
+
+  <main class="flex-grow flex flex-col gap-4 items-center justify-between p-4" data-controller="card-animation">
+    <!-- Next Turn Button -->
+    <div class="w-full flex justify-end">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out" data-action="card-animation#spin">
+        Next Turn
+      </button>
+    </div>
+
+    <!-- Central Card Area -->
+    <div class="flex items-center justify-center w-full transform-gpu overflow-hidden will-change-transform transform-origin-center relative [perspective:100rem]">
+      <%= render 'shared/magic_card',
+                 title: "Chaos Orb",
+                 type: "World Enchantment",
+                 image_url: "https://cards.scryfall.io/art_crop/front/4/d/4d3de66c-2283-458f-9d0d-943027520aa2.jpg?1592709402",
+                 body: "All creatures have deathtouch",
+                 flavor: "In Gorgatha's domain, even the gentlest touch is a promise of the grave." %>
+    </div>
+
+    <!-- Global Status Effects -->
+    <div class="w-full mt-4">
+      <h2 class="text-center text-lg font-semibold mb-2">Global Effects</h2>
+      <div class="flex justify-center space-x-4">
+        <div class="w-40 h-28 bg-white dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-lg shadow-lg flex items-center justify-center">
+          <p class="text-xs text-gray-400 dark:text-gray-500">Effect 1</p>
+        </div>
+        <div class="w-40 h-28 bg-white dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-lg shadow-lg flex items-center justify-center">
+          <p class="text-xs text-gray-400 dark:text-gray-500">Effect 2</p>
+        </div>
+        <div class="w-40 h-28 bg-white dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-lg shadow-lg flex items-center justify-center">
+          <p class="text-xs text-gray-400 dark:text-gray-500">Effect 3</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
