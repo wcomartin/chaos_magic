@@ -1,0 +1,16 @@
+<%= turbo_stream.update "damage_roll" do %>
+  <%= render 'shared/roll_card', label: "Damage/Mill", roll: @damage_roll %>
+<% end %>
+
+<%= turbo_stream.update "chaos_roll" do %>
+  <%= render 'shared/roll_card', label: "Chaos Roll", roll: @chaos_roll %>
+<% end %>
+
+<%= turbo_stream.update "current_card" do %>
+  <%= render 'shared/magic_card',
+             title: @card.title,
+             type: @card.card_type,
+             image_url: "https://cards.scryfall.io/art_crop/front/4d3de66c-2283-458f-9d0d-943027520aa2.jpg?1592709402",
+             body: @card.oracle_text,
+             flavor: @card.flavor_text %>
+<% end %>

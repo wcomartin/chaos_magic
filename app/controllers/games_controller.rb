@@ -15,6 +15,17 @@ class GamesController < ApplicationController
     @people = Person.all
   end
 
+  def next_turn
+    @game = Game.find(params[:id])
+    @card = Card.order("RANDOM()").first
+    @damage_roll = SecureRandom.random_number(0..9)
+    @chaos_roll = (SecureRandom.random_number(0..19) * 10) + SecureRandom.random_number(0..9)
+
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
   def create
     @game = Game.new(game_params)
     if @game.save
