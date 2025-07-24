@@ -38,18 +38,9 @@
     <div class="w-full mt-4">
       <h2 class="text-center text-lg font-semibold mb-2">Global Effects</h2>
       <div class="flex justify-center space-x-4">
-        <div class="w-40 h-28 bg-white dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-lg shadow-lg flex flex-col items-center justify-center">
-          <div class="h-1/2"><%= show_svg("token_icons/deathtouch_icon_2.svg") %></div>
-          <p class="text-sm text-gray-400 dark:text-gray-500">Deathtouch</p>
-        </div>
-        <div class="w-40 h-28 bg-white dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-lg shadow-lg flex flex-col items-center justify-center">
-          <%#= show_svg("token_icons/deathtouch_icon_2.svg") %>
-          <p class="text-xs text-gray-400 dark:text-gray-500"></p>
-        </div>
-        <div class="w-40 h-28 bg-white dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-lg shadow-lg flex flex-col items-center justify-center">
-          <%#= show_svg("token_icons/deathtouch_icon_2.svg") %>
-          <p class="text-xs text-gray-400 dark:text-gray-500"></p>
-        </div>
+        <%= render 'shared/status_effect', label: "deathtouch", icon: "token_icons/deathtouch_icon_2.svg" %>
+        <%= render 'shared/status_effect', label: "deathtouch", icon: "token_icons/deathtouch_icon_2.svg" %>
+        <%= render 'shared/status_effect', label: "deathtouch", icon: "token_icons/deathtouch_icon_2.svg" %>
       </div>
     </div>
   </main>
