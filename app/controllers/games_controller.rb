@@ -5,9 +5,10 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @card = Card.order("RANDOM()").first
-    @damage_roll = SecureRandom.random_number(0..9)
-    @chaos_roll = (SecureRandom.random_number(0..19) * 10) + SecureRandom.random_number(0..9)
+    last_turn = @game.turns.last
+    @card = last_turn&.card || Card.order("RANDOM()").first
+    @damage_roll = last_turn&.damage_roll || 0
+    @chaos_roll = last_turn&.chaos_roll || 0
   end
 
   def new
@@ -21,9 +22,16 @@ class GamesController < ApplicationController
     @damage_roll = SecureRandom.random_number(0..9)
     @chaos_roll = (SecureRandom.random_number(0..19) * 10) + SecureRandom.random_number(0..9)
 
+    @game.turns.create!(card: @card, damage_roll: @damage_roll, chaos_roll: @chaos_roll)
+
     respond_to do |format|
       format.turbo_stream
     end
+  end
+
+  def history
+    @game = Game.find(params[:id])
+    @turns = @game.turns.order(created_at: :desc)
   end
 
   def create

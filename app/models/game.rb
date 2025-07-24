@@ -6,7 +6,4 @@ class Game < ApplicationRecord
   attribute :status, :string, default: "playing"
 
   scope :archived, -> { where.not(archived_at: nil) }
-
-
-validates_presence_of :players
 end

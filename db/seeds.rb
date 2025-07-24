@@ -82,28 +82,43 @@ person3 = Person.find_or_create_by!(name: "Charlie")
 person4 = Person.find_or_create_by!(name: "David")
 
 # Create 5 games
-game1 = Game.find_or_create_by!(id: 1, global_effects: [ "Deathtouch", "Flying" ], status: "playing")
-Player.find_or_create_by!(game: game1, person: person1)
-Player.find_or_create_by!(game: game1, person: person2)
-game1.turns.find_or_create_by!(card: Card.find_by(title: "Sol Ring"))
-game1.turns.find_or_create_by!(card: Card.find_by(title: "Lightning Bolt"))
+Game.find_or_create_by!(id: 1) do |game|
+  game.global_effects = ["Deathtouch", "Flying"]
+  game.status = "playing"
+  game.players.build(person: person1)
+  game.players.build(person: person2)
+  game.turns.build(card: Card.find_by(title: "Sol Ring"))
+  game.turns.build(card: Card.find_by(title: "Lightning Bolt"))
+end
 
-game2 = Game.find_or_create_by!(id: 2, global_effects: [ "Vigilance" ], status: "playing")
-Player.find_or_create_by!(game: game2, person: person1)
-Player.find_or_create_by!(game: game2, person: person3)
-game2.turns.find_or_create_by!(card: Card.find_by(title: "Giant Growth"))
+Game.find_or_create_by!(id: 2) do |game|
+  game.global_effects = ["Vigilance"]
+  game.status = "playing"
+  game.players.build(person: person1)
+  game.players.build(person: person3)
+  game.turns.build(card: Card.find_by(title: "Giant Growth"))
+end
 
-game3 = Game.find_or_create_by!(id: 3, global_effects: [], status: "done")
-Player.find_or_create_by!(game: game3, person: person2)
-Player.find_or_create_by!(game: game3, person: person4)
-game3.turns.find_or_create_by!(card: Card.find_by(title: "Counterspell"))
+Game.find_or_create_by!(id: 3) do |game|
+  game.global_effects = []
+  game.status = "done"
+  game.players.build(person: person2)
+  game.players.build(person: person4)
+  game.turns.build(card: Card.find_by(title: "Counterspell"))
+end
 
-game4 = Game.find_or_create_by!(id: 4, global_effects: [ "Haste", "Trample" ], status: "playing")
-Player.find_or_create_by!(game: game4, person: person1)
-Player.find_or_create_by!(game: game4, person: person4)
-game4.turns.find_or_create_by!(card: Card.find_by(title: "Black Lotus"))
+Game.find_or_create_by!(id: 4) do |game|
+  game.global_effects = ["Haste", "Trample"]
+  game.status = "playing"
+  game.players.build(person: person1)
+  game.players.build(person: person4)
+  game.turns.build(card: Card.find_by(title: "Black Lotus"))
+end
 
-game5 = Game.find_or_create_by!(id: 5, global_effects: [ "Indestructible" ], status: "playing")
-Player.find_or_create_by!(game: game5, person: person2)
-Player.find_or_create_by!(game: game5, person: person3)
-game5.turns.find_or_create_by!(card: Card.find_by(title: "Serra Angel"))
+Game.find_or_create_by!(id: 5) do |game|
+  game.global_effects = ["Indestructible"]
+  game.status = "playing"
+  game.players.build(person: person2)
+  game.players.build(person: person3)
+  game.turns.build(card: Card.find_by(title: "Serra Angel"))
+end

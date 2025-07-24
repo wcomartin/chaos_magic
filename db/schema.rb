@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_24_060605) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_24_075210) do
   create_table "cards", force: :cascade do |t|
     t.string "title"
     t.string "card_type"
@@ -48,6 +48,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_24_060605) do
     t.integer "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "damage_roll"
+    t.integer "chaos_roll"
     t.index ["card_id"], name: "index_turns_on_card_id"
     t.index ["game_id"], name: "index_turns_on_game_id"
   end

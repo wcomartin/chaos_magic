@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "games#index"
   resources :games do
     post :next_turn, on: :member
+    get :history, on: :member
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
