@@ -19,8 +19,8 @@ class GamesController < ApplicationController
   def next_turn
     @game = Game.find(params[:id])
     @card = Card.order("RANDOM()").first
-    @damage_roll = SecureRandom.random_number(0..9)
-    @chaos_roll = (SecureRandom.random_number(0..19) * 10) + SecureRandom.random_number(0..9)
+    @damage_roll = roll_damage
+    @chaos_roll = roll_chaos
 
     @game.turns.create!(card: @card, damage_roll: @damage_roll, chaos_roll: @chaos_roll)
 

@@ -8,6 +8,14 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+def seed_damage_roll
+  SecureRandom.random_number(0..9)
+end
+
+def seed_chaos_roll
+  (SecureRandom.random_number(0..19) * 10) + SecureRandom.random_number(0..9)
+end
+
 Card.find_or_create_by!(title: "Sol Ring") do |card|
   card.card_type = "Artifact"
   card.oracle_text = "{T}: Add {C}{C}."
@@ -87,8 +95,8 @@ Game.find_or_create_by!(id: 1) do |game|
   game.status = "playing"
   game.players.build(person: person1)
   game.players.build(person: person2)
-  game.turns.build(card: Card.find_by(title: "Sol Ring"))
-  game.turns.build(card: Card.find_by(title: "Lightning Bolt"))
+  game.turns.build(card: Card.find_by(title: "Sol Ring"), damage_roll: seed_damage_roll, chaos_roll: seed_chaos_roll)
+  game.turns.build(card: Card.find_by(title: "Lightning Bolt"), damage_roll: seed_damage_roll, chaos_roll: seed_chaos_roll)
 end
 
 Game.find_or_create_by!(id: 2) do |game|
@@ -96,7 +104,7 @@ Game.find_or_create_by!(id: 2) do |game|
   game.status = "playing"
   game.players.build(person: person1)
   game.players.build(person: person3)
-  game.turns.build(card: Card.find_by(title: "Giant Growth"))
+  game.turns.build(card: Card.find_by(title: "Giant Growth"), damage_roll: seed_damage_roll, chaos_roll: seed_chaos_roll)
 end
 
 Game.find_or_create_by!(id: 3) do |game|
@@ -104,7 +112,7 @@ Game.find_or_create_by!(id: 3) do |game|
   game.status = "done"
   game.players.build(person: person2)
   game.players.build(person: person4)
-  game.turns.build(card: Card.find_by(title: "Counterspell"))
+  game.turns.build(card: Card.find_by(title: "Counterspell"), damage_roll: seed_damage_roll, chaos_roll: seed_chaos_roll)
 end
 
 Game.find_or_create_by!(id: 4) do |game|
@@ -112,7 +120,7 @@ Game.find_or_create_by!(id: 4) do |game|
   game.status = "playing"
   game.players.build(person: person1)
   game.players.build(person: person4)
-  game.turns.build(card: Card.find_by(title: "Black Lotus"))
+  game.turns.build(card: Card.find_by(title: "Black Lotus"), damage_roll: seed_damage_roll, chaos_roll: seed_chaos_roll)
 end
 
 Game.find_or_create_by!(id: 5) do |game|
@@ -120,5 +128,5 @@ Game.find_or_create_by!(id: 5) do |game|
   game.status = "playing"
   game.players.build(person: person2)
   game.players.build(person: person3)
-  game.turns.build(card: Card.find_by(title: "Serra Angel"))
+  game.turns.build(card: Card.find_by(title: "Serra Angel"), damage_roll: seed_damage_roll, chaos_roll: seed_chaos_roll)
 end
