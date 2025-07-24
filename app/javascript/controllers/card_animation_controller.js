@@ -15,6 +15,6 @@ export default class extends Controller {
       this.cardContainerTarget.classList.remove("[transform:rotateY(180deg)]");
       // Manually submit the form after the animation
       event.target.form.requestSubmit();
-    }, 500); // 500ms delay for the animation
+    }, 800); // 800ms delay for the animation
   }
 }
