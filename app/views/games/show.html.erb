@@ -5,7 +5,9 @@
     <!-- Top Row: Damage/Mill, Chaos Roll, Next Turn Button -->
     <div class="w-full flex items-stretch justify-end gap-4 mb-4">
       <!-- Damage/Mill Box -->
-      <%= render 'shared/roll_card', label: "Damage/Mill", roll: @damage_roll %>
+      <div id="damage_roll">
+        <%= render 'shared/roll_card', label: "Damage/Mill", roll: @damage_roll %>
+      </div>
 
       <!-- Chaos Roll Box -->
       <div id="chaos_roll">
