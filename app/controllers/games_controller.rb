@@ -19,10 +19,10 @@ class GamesController < ApplicationController
   def next_turn
     @game = Game.find(params[:id])
     @card = Card.order("RANDOM()").first
-    @damage_roll = roll_damage
-    @chaos_roll = roll_chaos
 
-    @game.turns.create!(card: @card, damage_roll: @damage_roll, chaos_roll: @chaos_roll)
+    new_turn = @game.turns.create!(card: @card)
+    @damage_roll = new_turn.damage_roll
+    @chaos_roll = new_turn.chaos_roll
 
     respond_to do |format|
       format.turbo_stream
