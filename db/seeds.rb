@@ -83,7 +83,7 @@ person4 = Person.find_or_create_by!(name: "David")
 
 # Create 5 games
 game1 = Game.find_or_create_by!(id: 1) do |game|
-  game.global_effects = ["Deathtouch", "Flying"]
+  game.global_effects = [ "Deathtouch", "Flying" ]
   game.status = "playing"
 end
 game1.players.find_or_create_by!(person: person1)
@@ -92,7 +92,7 @@ game1.turns.find_or_create_by!(card: Card.find_by(title: "Sol Ring"))
 game1.turns.find_or_create_by!(card: Card.find_by(title: "Lightning Bolt"))
 
 game2 = Game.find_or_create_by!(id: 2) do |game|
-  game.global_effects = ["Vigilance"]
+  game.global_effects = [ "Vigilance" ]
   game.status = "playing"
 end
 game2.players.find_or_create_by!(person: person1)
@@ -108,7 +108,7 @@ game3.players.find_or_create_by!(person: person4)
 game3.turns.find_or_create_by!(card: Card.find_by(title: "Counterspell"))
 
 game4 = Game.find_or_create_by!(id: 4) do |game|
-  game.global_effects = ["Haste", "Trample"]
+  game.global_effects = [ "Haste", "Trample" ]
   game.status = "playing"
 end
 game4.players.find_or_create_by!(person: person1)
@@ -116,7 +116,7 @@ game4.players.find_or_create_by!(person: person4)
 game4.turns.find_or_create_by!(card: Card.find_by(title: "Black Lotus"))
 
 game5 = Game.find_or_create_by!(id: 5) do |game|
-  game.global_effects = ["Indestructible"]
+  game.global_effects = [ "Indestructible" ]
   game.status = "playing"
 end
 game5.players.find_or_create_by!(person: person2)

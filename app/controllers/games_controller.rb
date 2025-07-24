@@ -18,7 +18,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save
-      redirect_to @game, notice: 'Game was successfully created.'
+      redirect_to @game, notice: "Game was successfully created."
     else
       @people = Person.all # Re-fetch people for form if save fails
       render :new, status: :unprocessable_entity
