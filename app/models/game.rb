@@ -7,5 +7,6 @@ class Game < ApplicationRecord
 
   scope :archived, -> { where.not(archived_at: nil) }
 
-  validates_presence_of :players
+  
+validates_presence_of :players
 end

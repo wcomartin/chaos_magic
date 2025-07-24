@@ -3,9 +3,9 @@
 one:
   game: one
   card: one
-  global_effects: MyText
+  
 
 two:
   game: two
   card: two
-  global_effects: MyText
+  
