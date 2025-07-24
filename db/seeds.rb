@@ -83,7 +83,7 @@ person4 = Person.find_or_create_by!(name: "David")
 
 # Create 5 games
 Game.find_or_create_by!(id: 1) do |game|
-  game.global_effects = ["Deathtouch", "Flying"]
+  game.global_effects = [ "Deathtouch", "Flying" ]
   game.status = "playing"
   game.players.build(person: person1)
   game.players.build(person: person2)
@@ -92,7 +92,7 @@ Game.find_or_create_by!(id: 1) do |game|
 end
 
 Game.find_or_create_by!(id: 2) do |game|
-  game.global_effects = ["Vigilance"]
+  game.global_effects = [ "Vigilance" ]
   game.status = "playing"
   game.players.build(person: person1)
   game.players.build(person: person3)
@@ -108,7 +108,7 @@ Game.find_or_create_by!(id: 3) do |game|
 end
 
 Game.find_or_create_by!(id: 4) do |game|
-  game.global_effects = ["Haste", "Trample"]
+  game.global_effects = [ "Haste", "Trample" ]
   game.status = "playing"
   game.players.build(person: person1)
   game.players.build(person: person4)
@@ -116,7 +116,7 @@ Game.find_or_create_by!(id: 4) do |game|
 end
 
 Game.find_or_create_by!(id: 5) do |game|
-  game.global_effects = ["Indestructible"]
+  game.global_effects = [ "Indestructible" ]
   game.status = "playing"
   game.players.build(person: person2)
   game.players.build(person: person3)
