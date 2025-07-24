@@ -7,10 +7,14 @@ export default class extends Controller {
     console.log("CardAnimationController connected!");
   }
 
-  spin() {
+  spin(event) {
+    event.preventDefault(); // Prevent the default form submission
+
     this.cardContainerTarget.classList.add("[transform:rotateY(180deg)]");
     setTimeout(() => {
       this.cardContainerTarget.classList.remove("[transform:rotateY(180deg)]");
-    }, 800)
+      // Manually submit the form after the animation
+      event.target.form.requestSubmit();
+    }, 500); // 500ms delay for the animation
   }
 }

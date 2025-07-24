@@ -5,21 +5,23 @@
     <!-- Top Row: Damage/Mill, Chaos Roll, Next Turn Button -->
     <div class="w-full flex items-stretch justify-end gap-4 mb-4">
       <!-- Damage/Mill Box -->
-      <div id="damage_roll">
+      <div id="damage_roll" class="flex-grow flex-1">
         <%= render 'shared/roll_card', label: "Damage/Mill", roll: @damage_roll %>
       </div>
 
       <!-- Chaos Roll Box -->
-      <div id="chaos_roll">
+      <div id="chaos_roll" class="flex-grow flex-1">
         <%= render 'shared/roll_card', label: "Chaos Roll", roll: @chaos_roll %>
       </div>
 
       <!-- Next Turn Button -->
-      <%= button_to "Next Turn", next_turn_game_path(@game), method: :post, data: { turbo_stream: true, action: "card-animation#spin" }, class: "bg-blue-500 hover:bg-blue-700 border-2 border-gray-300 dark:border-gray-600 text-white font-bold rounded-lg shadow-md transition duration-300 ease-in-out flex-grow flex-1 h-20" %>
+      <div class="flex-grow flex-1">
+        <%= button_to "Next Turn", next_turn_game_path(@game), method: :post, data: { action: "card-animation#spin" }, class: "bg-blue-500 hover:bg-blue-700 border-2 border-gray-300 dark:border-gray-600 text-white font-bold rounded-lg shadow-md transition duration-300 ease-in-out w-full h-20" %>
+      </div>
     </div>
 
     <!-- Central Card Area -->
-    <div id="current_card" class="flex items-center justify-center w-full transform-gpu overflow-hidden will-change-transform transform-origin-center relative [perspective:100rem]">
+    <div id="current_card" data-card-animation-target="cardContainer" class="flex items-center justify-center w-full transform-gpu overflow-hidden will-change-transform transform-origin-center relative [perspective:100rem]">
       <%= render 'shared/magic_card',
                  title: @card.title,
                  type: @card.card_type,
