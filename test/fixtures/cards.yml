@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  card_type: MyString
+  oracle_text: MyText
+  flavor_text: MyText
+
+two:
+  title: MyString
+  card_type: MyString
+  oracle_text: MyText
+  flavor_text: MyText
