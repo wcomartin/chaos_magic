@@ -21,11 +21,11 @@
     </div>
 
     <!-- Central Card Area -->
-    <div id="current_card" class="flex items-center justify-center w-full transform-gpu overflow-hidden will-change-transform transform-origin-center relative [perspective:100rem]">
+    <div class="flex items-center justify-center w-full transform-gpu overflow-hidden will-change-transform transform-origin-center relative [perspective:100rem]">
       <%= render 'shared/magic_card',
                  title: @card.title,
                  type: @card.card_type,
-                 image_url: "https://cards.scryfall.io/art_crop/front/4d3de66c-2283-458f-9d0d-943027520aa2.jpg?1592709402",
+                 image_url: "https://cards.scryfall.io/art_crop/front/4/d/4d3de66c-2283-458f-9d0d-943027520aa2.jpg?1592709402",
                  body: @card.oracle_text,
                  flavor: @card.flavor_text %>
     </div>

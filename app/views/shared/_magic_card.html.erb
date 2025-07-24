@@ -1,5 +1,7 @@
 <div class="w-80 h-[28rem] rounded-xl shadow-2xl border-2 border-black font-serif select-none relative transition duration-500 [transform-style:preserve-3d]" data-card-animation-target="cardContainer">
-  <%= render 'shared/magic_card_front', title: title, type: type, image_url: image_url, body: body, flavor: flavor %>
+  <div id="current_card">
+    <%= render 'shared/magic_card_front', title: title, type: type, image_url: image_url, body: body, flavor: flavor %>
+  </div>
 
   <!-- Card Back -->
   <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-black rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)]">
