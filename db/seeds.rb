@@ -74,3 +74,51 @@ Card.find_or_create_by!(title: "Chaos Orb") do |card|
   card.oracle_text = "All creatures have deathtouch"
   card.flavor_text = "In Gorgatha's domain, even the gentlest touch is a promise of the grave."
 end
+
+# Create some people
+person1 = Person.find_or_create_by!(name: "Alice")
+person2 = Person.find_or_create_by!(name: "Bob")
+person3 = Person.find_or_create_by!(name: "Charlie")
+person4 = Person.find_or_create_by!(name: "David")
+
+# Create 5 games
+game1 = Game.find_or_create_by!(id: 1) do |game|
+  game.global_effects = ["Deathtouch", "Flying"]
+  game.status = "playing"
+end
+game1.players.find_or_create_by!(person: person1)
+game1.players.find_or_create_by!(person: person2)
+game1.turns.find_or_create_by!(card: Card.find_by(title: "Sol Ring"))
+game1.turns.find_or_create_by!(card: Card.find_by(title: "Lightning Bolt"))
+
+game2 = Game.find_or_create_by!(id: 2) do |game|
+  game.global_effects = ["Vigilance"]
+  game.status = "playing"
+end
+game2.players.find_or_create_by!(person: person1)
+game2.players.find_or_create_by!(person: person3)
+game2.turns.find_or_create_by!(card: Card.find_by(title: "Giant Growth"))
+
+game3 = Game.find_or_create_by!(id: 3) do |game|
+  game.global_effects = []
+  game.status = "done"
+end
+game3.players.find_or_create_by!(person: person2)
+game3.players.find_or_create_by!(person: person4)
+game3.turns.find_or_create_by!(card: Card.find_by(title: "Counterspell"))
+
+game4 = Game.find_or_create_by!(id: 4) do |game|
+  game.global_effects = ["Haste", "Trample"]
+  game.status = "playing"
+end
+game4.players.find_or_create_by!(person: person1)
+game4.players.find_or_create_by!(person: person4)
+game4.turns.find_or_create_by!(card: Card.find_by(title: "Black Lotus"))
+
+game5 = Game.find_or_create_by!(id: 5) do |game|
+  game.global_effects = ["Indestructible"]
+  game.status = "playing"
+end
+game5.players.find_or_create_by!(person: person2)
+game5.players.find_or_create_by!(person: person3)
+game5.turns.find_or_create_by!(card: Card.find_by(title: "Serra Angel"))
